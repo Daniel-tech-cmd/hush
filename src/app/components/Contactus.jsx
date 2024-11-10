@@ -175,7 +175,6 @@ const ContactUs = () => {
         </div>
       </div>
 
-      {/* Map Section */}
       <div className="my-16 px-6 lg:px-12">
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d23512.305972414394!2d76.98790712089798!3d28.44539494038656!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d3fbb7c7b1b9d%3A0xb5bd6b57c5f529e4!2sSector%2030%2C%20Gurugram%2C%20Haryana%20122001!5e0!3m2!1sen!2sin!4v1630074921291!5m2!1sen!2sin"
