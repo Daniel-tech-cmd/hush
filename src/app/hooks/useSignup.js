@@ -25,7 +25,7 @@ const useSignup = () => {
 
     try {
       try {
-        const response = await axios.post(`/api/signup`, data);
+        const response = await axios.post(`/api/user/signup`, data);
 
         if (error?.response?.data.error) {
           setIsLoading(false);

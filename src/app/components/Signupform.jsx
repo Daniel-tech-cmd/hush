@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-
+import useSignup from "../hooks/useSignup";
 const Signup = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
@@ -9,9 +9,10 @@ const Signup = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [role, setRole] = useState("user");
   const [error, setError] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
   const [passwordVisible, setPasswordVisible] = useState(false);
   const [confirmPasswordVisible, setConfirmPasswordVisible] = useState(false);
+
+  const { signup, isLoading, error: erro } = useSignup();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -34,16 +35,13 @@ const Signup = () => {
       role,
     };
 
-    setIsLoading(true);
-
     try {
-      console.log("Submitting user data:", newUser);
+      //   console.log("Submitting user data:", newUser);
+      await signup(newUser);
       // Example: await submit(newUser, 'signup');
     } catch (err) {
       console.error(err);
       setError("An error occurred. Please try again.");
-    } finally {
-      setIsLoading(false);
     }
   };
 
@@ -136,6 +134,7 @@ const Signup = () => {
         </div>
 
         {error && <div className="text-red-500 text-sm mt-2">{error}</div>}
+        {erro && <div className="text-red-500 text-sm mt-2">{erro}</div>}
 
         <button
           type="submit"
