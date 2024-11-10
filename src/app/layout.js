@@ -2,6 +2,7 @@ import { Rubik } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
 import Navbar from "./components/Navbar";
+import { AuthContextProvider } from "./contexts/AuthContext";
 
 const rubik = Rubik({ subsets: ["latin"], weight: ["400", "500", "700"] });
 
@@ -39,8 +40,10 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${rubik.className} antialiased`}
       >
-        <Navbar />
-        {children}
+        <AuthContextProvider>
+          <Navbar />
+          {children}
+        </AuthContextProvider>
       </body>
     </html>
   );

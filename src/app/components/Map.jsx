@@ -42,7 +42,14 @@ const MapEmbed = ({ location }) => {
   }, [location]);
 
   return (
-    <div className="my-16 px-6 lg:px-12">
+    <div className="my-16 px-6 lg:px-12 bg-gray-100 rounded-xl shadow-md">
+      <h2 className="text-2xl font-semibold text-gray-800 mb-2">
+        Location Map
+      </h2>
+      <p className="text-gray-600 mb-6">
+        Explore the location details for:{" "}
+        <span className="font-medium">{location}</span>
+      </p>
       {coordinates ? (
         <MapContainer
           key={mapKey} // Use unique key to prevent reinitialization
@@ -60,7 +67,7 @@ const MapEmbed = ({ location }) => {
           </Marker>
         </MapContainer>
       ) : (
-        <p>Loading map...</p>
+        <p className="text-center text-gray-500">Loading map...</p>
       )}
     </div>
   );

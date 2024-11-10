@@ -29,7 +29,7 @@ const Address = ({ data }) => {
     <>
       <div className="p-6 bg-gradient-to-r from-gray-100 to-gray-200 rounded-lg shadow-lg max-w-lg mx-auto md:max-w-2xl my-6">
         <div className="flex items-center justify-between mb-6">
-          <h3 className="text-2xl font-semibold text-gray-800">
+          <h3 className="text-2xl md:text-2xl text-lg font-semibold text-gray-800">
             Shipment Details
           </h3>
           <span className="text-sm text-gray-600 font-medium">{`Status: ${data?.status}`}</span>
@@ -175,21 +175,28 @@ const Address = ({ data }) => {
         </button>
 
         {/* Receipt Modal */}
+        {/* Receipt Modal */}
         {showReceipt && (
-          <div className="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50">
-            <div className="bg-white p-8 rounded-lg shadow-lg max-w-md w-full">
-              <h2 className="text-xl font-semibold mb-4">Delivery Info</h2>
+          <div className="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-80">
+            <div className="bg-gray-900 p-8 rounded-lg shadow-lg max-w-md w-full text-white">
+              <h2 className="text-xl font-semibold mb-4 text-gray-200">
+                Delivery Info
+              </h2>
               <div className="space-y-2">
                 <p>
-                  <strong>Recipient Name:</strong> {data?.recieverName}
+                  <strong className="text-gray-400">Recipient Name:</strong>{" "}
+                  {data?.recieverName}
                 </p>
                 <p>
-                  <strong>Address:</strong> {data?.recieveraddress}
+                  <strong className="text-gray-400">Address:</strong>{" "}
+                  {data?.recieveraddress}
                 </p>
-                <h2 className="text-lg font-semibold mt-4">Amount Due: $234</h2>
+                <h2 className="text-lg font-semibold mt-4 text-gray-200">
+                  Amount Due: $234
+                </h2>
               </div>
               <button
-                className="mt-6 w-full py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all"
+                className="mt-6 w-full py-2 bg-gray-700 text-white rounded-lg hover:bg-gray-600 transition-all"
                 onClick={() => setShowReceipt(false)}
               >
                 Close
