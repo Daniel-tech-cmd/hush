@@ -10,7 +10,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@react-google-maps/api": "^2.20.3",
     "aos": "^2.3.4",
     "leaflet": "^1.9.4",
     "next": "15.0.2",
