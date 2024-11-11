@@ -1,5 +1,6 @@
 import Gift from "../../../models/gift";
 import { connectToDB } from "../../../utils/database";
+export const dynamic = "force-dynamic";
 
 export const GET = async (req, { params }) => {
   await connectToDB();

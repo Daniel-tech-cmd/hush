@@ -102,7 +102,7 @@ const Address = ({ data }) => {
             <FaEnvelope className="text-gray-700 mr-3" size={24} />
             <div>
               <span className="block font-medium text-gray-700">
-                Recipient's Email
+                Recipient's Email / Number
               </span>
               <span className="text-gray-900">{data?.recieverEmail}</span>
             </div>

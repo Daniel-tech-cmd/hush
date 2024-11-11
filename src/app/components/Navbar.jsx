@@ -69,6 +69,16 @@ const Navbar = () => {
                 >
                   Send Package
                 </Link>
+                <Link
+                  href="/admin/"
+                  className={`px-3 py-2 text-sm font-medium${
+                    router.pathname === "/services"
+                      ? "text-green-600"
+                      : "text-gray-700"
+                  } hover:text-green-600`}
+                >
+                  All Packages
+                </Link>
               </>
             )}
           </div>

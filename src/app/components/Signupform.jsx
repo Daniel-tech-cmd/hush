@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import useSignup from "../hooks/useSignup";
+import { useAuthContext } from "../hooks/useAuthContext";
 import Success from "./Success";
 const Signup = () => {
   const [username, setUsername] = useState("");
@@ -12,6 +13,7 @@ const Signup = () => {
   const [error, setError] = useState(null);
   const [passwordVisible, setPasswordVisible] = useState(false);
   const [confirmPasswordVisible, setConfirmPasswordVisible] = useState(false);
+  const { user } = useAuthContext();
 
   const { signup, isLoading, error: erro, showsuccess } = useSignup();
 
@@ -122,17 +124,21 @@ const Signup = () => {
           </div>
         </div>
 
-        <div>
-          <label className="block text-gray-700 font-semibold mb-2">Role</label>
-          <select
-            className="w-full p-3 border border-gray-300 rounded-lg text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            value={role}
-            onChange={(e) => setRole(e.target.value)}
-          >
-            <option value="user">User</option>
-            <option value="admin">Admin</option>
-          </select>
-        </div>
+        {user?.role === "admin" && (
+          <div>
+            <label className="block text-gray-700 font-semibold mb-2">
+              Role
+            </label>
+            <select
+              className="w-full p-3 border border-gray-300 rounded-lg text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              value={role}
+              onChange={(e) => setRole(e.target.value)}
+            >
+              <option value="user">User</option>
+              <option value="admin">Admin</option>
+            </select>
+          </div>
+        )}
 
         {error && <div className="text-red-500 text-sm mt-2">{error}</div>}
         {erro && <div className="text-red-500 text-sm mt-2">{erro}</div>}

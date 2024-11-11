@@ -188,9 +188,11 @@ const Edit = () => {
               </div>
 
               <div>
-                <label className="block text-gray-700">Receiver's Email:</label>
+                <label className="block text-gray-700">
+                  Receiver's Email/Number:
+                </label>
                 <input
-                  type="email"
+                  type="text"
                   placeholder="Receiver's email"
                   className="w-full p-2 border border-gray-300 rounded-md"
                   value={songOwner}
