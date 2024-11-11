@@ -18,11 +18,10 @@ const page = async ({ params }) => {
   const id = await params.id;
   const data = getdatabyId(id);
   const [dat] = await Promise.all([data]);
-  const location = "Enugu";
   return (
     <>
       <div style={{ background: "#fff", marginTop: "65px" }}>
-        <MapEmbed location={dat?.location} />
+        <MapEmbed location={dat?.currentLocation} />
         <Address data={dat} />
         <Footer />
       </div>
