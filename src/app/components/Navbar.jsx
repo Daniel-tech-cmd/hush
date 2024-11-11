@@ -57,6 +57,26 @@ const Navbar = () => {
             >
               Our Services
             </Link>
+            <Link
+              href="/admin/user/signup"
+              className={`px-3 py-2 text-sm font-medium ${
+                router.pathname === "/services"
+                  ? "text-green-600"
+                  : "text-gray-700"
+              } hover:text-green-600`}
+            >
+              Sign Up
+            </Link>{" "}
+            <Link
+              href="/services"
+              className={`px-3 py-2 text-sm font-medium ${
+                router.pathname === "/admin/user/signin"
+                  ? "text-green-600"
+                  : "text-gray-700"
+              } hover:text-green-600`}
+            >
+              Log in
+            </Link>
             {user?.role === "admin" && (
               <>
                 <Link
@@ -172,7 +192,6 @@ const Navbar = () => {
             >
               Our Services
             </Link>
-
             <Link
               href="/contact"
               className={`block px-3 py-2 rounded-md text-base font-medium ${
@@ -182,6 +201,26 @@ const Navbar = () => {
               } hover:text-green-600`}
             >
               Contact Us
+            </Link>
+            <Link
+              href="/admin/user/signup"
+              className={`block px-3 py-2 rounded-md text-base font-medium ${
+                router.pathname === "/services"
+                  ? "text-green-600"
+                  : "text-gray-700"
+              } hover:text-green-600`}
+            >
+              Sign Up
+            </Link>{" "}
+            <Link
+              href="/services"
+              className={`block px-3 py-2 rounded-md text-base font-medium ${
+                router.pathname === "/admin/user/signin"
+                  ? "text-green-600"
+                  : "text-gray-700"
+              } hover:text-green-600`}
+            >
+              Log in
             </Link>
             {user?.role === "admin" && (
               <>

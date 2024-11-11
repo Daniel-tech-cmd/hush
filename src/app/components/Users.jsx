@@ -8,12 +8,11 @@ const AdminComp = ({ data }) => {
   // Define the delete handler as an async function
   const handleDelete = async (id) => {
     const confirmDelete = window.confirm(
-      "Are you sure you want to delete this package?"
+      "Are you sure you want to delete this User?"
     );
     if (confirmDelete) {
       try {
-        console.log("g");
-        await deleteData(id, "gift");
+        await deleteData(id, "user");
       } catch (error) {
         console.error("Failed to delete package:", error);
       }
@@ -78,7 +77,7 @@ const AdminComp = ({ data }) => {
                 textDecoration: "none",
               }}
             >
-              <span>{dat.recieverName}</span>
+              <span>{dat.email}</span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 height="18px"

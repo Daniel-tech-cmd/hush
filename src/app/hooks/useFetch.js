@@ -33,12 +33,12 @@ const useFetch = () => {
       setIsLoading(false);
     }
   };
-  async function deleteData(postId) {
+  async function deleteData(postId, url) {
     setError(null);
     setIsLoading(true);
     try {
       console.log("here");
-      const response = await axios.delete(`/api/gift/${postId}`, {
+      const response = await axios.delete(`/api/${url}/${postId}`, {
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${user?.token}`,
