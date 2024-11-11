@@ -15,8 +15,8 @@ export default function Footer() {
         <div className="space-y-4">
           <h2 className="text-3xl font-bold">Delighted Customers !!</h2>
           <p>
-            Shipease has helped a lot in increasing our delivery percentage.
-            Great service & support !!
+            Jetspeedcargo has helped a lot in increasing our delivery
+            percentage. Great service & support !!
           </p>
           <p className="font-semibold">ANUP MEHTA</p>
           <div className="flex space-x-4 mt-4">

@@ -20,13 +20,13 @@ const AboutUs = () => {
           {/* Left Text Content */}
           <div>
             <p className="text-gray-800 text-lg leading-relaxed">
-              At ShipEase, we are committed to making global shipping simple,
-              efficient, and accessible. Our mission is to bridge distances and
-              connect businesses with their customers worldwide by offering a
-              seamless, reliable cargo and waybill solution.
+              At Jetspeedcargo, we are committed to making global shipping
+              simple, efficient, and accessible. Our mission is to bridge
+              distances and connect businesses with their customers worldwide by
+              offering a seamless, reliable cargo and waybill solution.
             </p>
             <p className="mt-4 text-gray-800 text-lg leading-relaxed">
-              With a focus on transparency, speed, and innovation, ShipEase
+              With a focus on transparency, speed, and innovation, Jetspeedcargo
               provides end-to-end logistics services tailored to meet the needs
               of both small businesses and large enterprises. Our platform
               offers real-time tracking, competitive rates, and multiple carrier
@@ -36,8 +36,8 @@ const AboutUs = () => {
             <p className="mt-4 text-gray-800 text-lg leading-relaxed">
               We envision a world where businesses can expand beyond borders
               without the complexities of international logistics. By combining
-              technology and personalized customer support, ShipEase is here to
-              simplify the shipping experience and help businesses grow
+              technology and personalized customer support, Jetspeedcargo is
+              here to simplify the shipping experience and help businesses grow
               globally.
             </p>
           </div>
@@ -46,7 +46,7 @@ const AboutUs = () => {
           <div className="relative">
             <img
               src="/about-img.jpg"
-              alt="ShipEase Logistics"
+              alt="Jetspeedcargo Logistics"
               className="rounded-lg shadow-lg w-full h-auto"
             />
           </div>

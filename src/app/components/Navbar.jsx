@@ -19,10 +19,10 @@ const Navbar = () => {
           <div className="flex-shrink-0">
             <Link href="/">
               <span
-                className="bg-clip-text text-transparent bg-gradient-to-r from-green-500 to-black"
+                className="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-black"
                 style={{ fontWeight: "800" }}
               >
-                GoldGroveco.
+                Jetspeedcargo
               </span>
             </Link>
           </div>

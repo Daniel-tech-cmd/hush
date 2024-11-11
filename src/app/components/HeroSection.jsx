@@ -24,7 +24,7 @@ export default function HeroSection() {
         </h1>
         {/* Subheading */}
         <p className="text-lg md:text-xl lg:text-2xl text-white">
-          It’s easy and free!!! Go with Ease.... Start ShipEase !!!
+          It’s easy and free!!! Go with Ease.... Start Jetspeedcargo !!!
         </p>
         {/* Button */}
         <button className="px-6 py-3 mt-4 bg-gradient-to-r from-green-500 to-yellow-500 text-white font-semibold rounded-md shadow-lg hover:from-green-600 hover:to-yellow-600 transition duration-200">
