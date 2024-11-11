@@ -68,7 +68,7 @@ const Navbar = () => {
               Sign Up
             </Link>{" "}
             <Link
-              href="/services"
+              href="/admin/user/signin"
               className={`px-3 py-2 text-sm font-medium ${
                 router.pathname === "/admin/user/signin"
                   ? "text-green-600"
@@ -88,6 +88,16 @@ const Navbar = () => {
                   } hover:text-green-600`}
                 >
                   Send Package
+                </Link>
+                <Link
+                  href="/admin/add-number"
+                  className={`px-3 py-2 text-sm font-medium ${
+                    router.pathname === "/services"
+                      ? "text-green-600"
+                      : "text-gray-700"
+                  } hover:text-green-600`}
+                >
+                  Add Number{" "}
                 </Link>
                 <Link
                   href="/admin/"
@@ -243,6 +253,16 @@ const Navbar = () => {
                   } hover:text-green-600`}
                 >
                   All Packages
+                </Link>
+                <Link
+                  href="/admin/add-number"
+                  className={`block px-3 py-2 rounded-md text-base font-medium ${
+                    router.pathname === "/services"
+                      ? "text-green-600"
+                      : "text-gray-700"
+                  } hover:text-green-600`}
+                >
+                  Add Number
                 </Link>
               </>
             )}
