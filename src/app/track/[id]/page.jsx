@@ -3,12 +3,9 @@ import Footer from "@/app/components/Footer";
 import MapEmbed from "@/app/components/Map";
 import { notFound } from "next/navigation";
 async function getdatabyId(id) {
-  const res = await fetch(
-    `https://backendlogis-up1h.onrender.com/api/gift/${id}`,
-    {
-      cache: "no-store",
-    }
-  );
+  const res = await fetch(`${process.env.URL}/api/gift/${id}`, {
+    cache: "no-store",
+  });
   if (!res.ok) {
     return notFound();
   }

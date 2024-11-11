@@ -1,16 +1,31 @@
 "use client";
 import Link from "next/link";
+import useFetch from "../hooks/useFetch";
 
 const AdminComp = ({ data }) => {
+  const { deleteData, error, isLoading } = useFetch();
+
+  // Define the delete handler as an async function
+  const handleDelete = async (id) => {
+    const confirmDelete = window.confirm(
+      "Are you sure you want to delete this package?"
+    );
+    if (confirmDelete) {
+      try {
+        console.log("g");
+        await deleteData(id);
+      } catch (error) {
+        console.error("Failed to delete package:", error);
+      }
+    }
+  };
+
   return (
     <>
       <section
         style={{
           padding: "15px",
-          //   backgroundColor: "#1F2937",
           minHeight: "100vh",
-
-          //   maxWidth: "calc(100vw - 260px)",
           padding: "70px 20px",
           boxSizing: "border-box",
           overflowX: "hidden",
@@ -28,7 +43,6 @@ const AdminComp = ({ data }) => {
             style={{
               fontWeight: 400,
               fontSize: "22px",
-
               color: "#fff",
               display: "flex",
               justifyContent: "space-between",
@@ -71,7 +85,11 @@ const AdminComp = ({ data }) => {
                 viewBox="0 -960 960 960"
                 width="18px"
                 fill="red"
-                style={{ marginLeft: "5px" }}
+                style={{ marginLeft: "5px", cursor: "pointer" }}
+                onClick={(e) => {
+                  e.preventDefault(); // Prevents navigation on icon click
+                  handleDelete(dat._id); // Call the delete handler
+                }}
               >
                 <path d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z" />
               </svg>

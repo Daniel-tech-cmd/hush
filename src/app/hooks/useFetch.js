@@ -37,16 +37,13 @@ const useFetch = () => {
     setError(null);
     setIsLoading(true);
     try {
-      const response = await axios.delete(
-        `${process.env.NEXT_PUBLIC_URL}/api/user/delete/${postId}`,
-        data,
-        {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${user?.token}`,
-          },
-        }
-      );
+      console.log("here");
+      const response = await axios.delete(`/api/gift/${postId}`, {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${user?.token}`,
+        },
+      });
 
       if (response.status !== 200) {
         setIsLoading(false);
@@ -57,6 +54,7 @@ const useFetch = () => {
         setResponseData(response.data);
         setIsLoading(false);
         alert("deleted");
+        window.location.reload();
       }
     } catch (error) {
       if (error?.message) {
@@ -264,7 +262,7 @@ const useFetch = () => {
     setError(null);
     setIsLoading(true);
     try {
-      const response = await axios.patch(`/api/user/${postId}`, data, {
+      const response = await axios.patch(`/api/gift/${postId}`, data, {
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${user?.token}`,

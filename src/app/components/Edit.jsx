@@ -1,8 +1,9 @@
 "use client";
-import { useSearchParams } from "next/navigation";
+import { notFound, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import useFetch from "@/app/hooks/useFetch";
 import { useAuthContext } from "@/app/hooks/useAuthContext";
+import { ToastContainer } from "react-toastify";
 
 const Edit = () => {
   const router = useSearchParams();
@@ -16,45 +17,45 @@ const Edit = () => {
   }, [query]);
 
   const [quantity, setQuantity] = useState("");
-  const [service, setService] = useState(res.service);
-  const [author, setAuthor] = useState(res.recieverName);
-  const [name, setName] = useState(res.description);
-  const [songOwner, setSongOwner] = useState(res.recieverEmail);
-  const [metaDescription, setMetaDesc] = useState(res.weight);
+  const [service, setService] = useState(res?.service);
+  const [author, setAuthor] = useState(res?.recieverName);
+  const [name, setName] = useState(res?.description);
+  const [songOwner, setSongOwner] = useState(res?.recieverEmail);
+  const [metaDescription, setMetaDesc] = useState(res?.weight);
   const [err, setError] = useState(null);
-  const [address, setAddress] = useState(res.recieveraddress);
-  const [date, setDate] = useState(res.deliverydate);
-  const [senderName, setSenderName] = useState(res.senderName);
-  const [location, setLocation] = useState(res.location);
-  const [senderAddress, setSenderAddress] = useState(res.senderaddress);
-  const [shipmentDate, setShipmentDate] = useState(res.shipmentDate);
-  const [currentLocation, setCurrentLocation] = useState(res.currentLocation);
-  const [status, setStatus] = useState(res.status);
+  const [address, setAddress] = useState(res?.recieveraddress);
+  const [date, setDate] = useState(res?.deliverydate);
+  const [senderName, setSenderName] = useState(res?.senderName);
+  const [location, setLocation] = useState(res?.location);
+  const [senderAddress, setSenderAddress] = useState(res?.senderaddress);
+  const [shipmentDate, setShipmentDate] = useState(res?.shipmentDate);
+  const [currentLocation, setCurrentLocation] = useState(res?.currentLocation);
+  const [status, setStatus] = useState(res?.status);
 
   const handlefetch = async (searchkeyword) => {
     try {
       const encodeQuery = encodeURIComponent(searchkeyword.trim());
-      console.log(encodeQuery);
-      const response = await fetch(
-        `https://backendlogis-up1h.onrender.com/api/track?query=${encodeQuery}`
-      );
+      const response = await fetch(`/api/gift/${encodeQuery}`);
+      if (response.status !== 200) {
+        return notFound();
+      }
       const data = await response.json();
 
-      setres(data[0]);
-      setQuantity(data[0].quantity);
-      setService(data[0].service);
-      setAuthor(data[0].recieverName);
-      setName(data[0].description);
-      setSongOwner(data[0].recieverEmail);
-      setMetaDesc(data[0].weight);
-      setAddress(data[0].recieveraddress);
-      setDate(data[0].deliverydate);
-      setSenderName(data[0].senderName);
-      setLocation(data[0].location);
-      setSenderAddress(data[0].senderaddress);
-      setShipmentDate(data[0].shipmentDate);
-      setCurrentLocation(data[0].currentLocation);
-      setStatus(data[0].status);
+      setres(data);
+      setQuantity(data.quantity);
+      setService(data.service);
+      setAuthor(data.recieverName);
+      setName(data.description);
+      setSongOwner(data.recieverEmail);
+      setMetaDesc(data.weight);
+      setAddress(data.recieveraddress);
+      setDate(data.deliverydate);
+      setSenderName(data.senderName);
+      setLocation(data.location);
+      setSenderAddress(data.senderaddress);
+      setShipmentDate(data.shipmentDate);
+      setCurrentLocation(data.currentLocation);
+      setStatus(data.status);
     } catch (error) {
       console.log(error);
     }
@@ -105,9 +106,9 @@ const Edit = () => {
         role: user?.role,
         status,
       };
-
+      const body = { data };
       try {
-        await updatePost(res._id, data, "gift");
+        await updatePost(res._id, body, "gift");
       } catch (erro) {
         console.log(erro);
       }
@@ -302,6 +303,7 @@ const Edit = () => {
           </div>
         </>
       )}
+      <ToastContainer />
     </>
   );
 };

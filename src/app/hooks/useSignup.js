@@ -48,7 +48,8 @@ const useSignup = () => {
             });
             Cookies.set("user", JSON.stringify(response.data));
             setIsLoading(false);
-            router.push(`/account/${response?.data?._id}`);
+            setshowsuccess(true);
+            router.push(`/`);
           } catch (error) {
             console.log(error);
           }
@@ -84,7 +85,7 @@ const useSignup = () => {
     setResponseData(null);
 
     try {
-      const response = await axios.post(`/api/login`, data);
+      const response = await axios.post(`/api/user/signin`, data);
 
       if (response.status === 200) {
         setResponseData(response.data);
@@ -95,8 +96,8 @@ const useSignup = () => {
         });
         Cookies.set("user", JSON.stringify(response.data));
         setIsLoading(false);
-        setloginsucess(true);
-        router.push(`/dashboard`);
+        setshowsuccess(true);
+        router.push(`/`);
       }
       if (response.status === 201) {
         setIsLoading(false);

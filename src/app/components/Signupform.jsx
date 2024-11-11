@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import useSignup from "../hooks/useSignup";
+import Success from "./Success";
 const Signup = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
@@ -12,7 +13,7 @@ const Signup = () => {
   const [passwordVisible, setPasswordVisible] = useState(false);
   const [confirmPasswordVisible, setConfirmPasswordVisible] = useState(false);
 
-  const { signup, isLoading, error: erro } = useSignup();
+  const { signup, isLoading, error: erro, showsuccess } = useSignup();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -144,6 +145,7 @@ const Signup = () => {
           {isLoading ? "Signing up..." : "Sign Up"}
         </button>
       </form>
+      {showsuccess && <Success message={"Sign up successful!"} />}
     </div>
   );
 };

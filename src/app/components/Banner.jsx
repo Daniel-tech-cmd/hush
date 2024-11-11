@@ -1,12 +1,17 @@
 "use client";
 import React, { useState } from "react";
-
+import { useRouter } from "next/navigation";
 const Banner = () => {
   const [trackingId, setTrackingId] = useState("");
+  const router = useRouter();
 
-  const handleTrack = () => {
-    // Add tracking function logic here
-    console.log("Tracking ID:", trackingId);
+  const handleTrack = (e) => {
+    e.preventDefault();
+    if (trackingId === "") {
+      return;
+    } else {
+      router.push(`/track/${trackingId.trim()}`);
+    }
   };
 
   return (
@@ -48,7 +53,9 @@ const Banner = () => {
             className="p-2 border border-gray-300 rounded-l-md focus:outline-none"
           />
           <button
-            onClick={handleTrack}
+            onClick={(e) => {
+              handleTrack(e);
+            }}
             className="p-2 bg-[#f4d956] text-black rounded-r-md hover:bg-yellow-400 transition"
             style={{ padding: "9px" }}
           >

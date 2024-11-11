@@ -1,13 +1,15 @@
 "use client";
 import { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import Success from "./Success";
+import useSignup from "../hooks/useSignup";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
   const [passwordVisible, setPasswordVisible] = useState(false);
+  const { login, error: erro, isLoading, showsuccess } = useSignup();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -23,16 +25,12 @@ const Login = () => {
       password: password.trim(),
     };
 
-    setIsLoading(true);
-
     try {
       console.log("Submitting login data:", loginData);
-      // Example: await submit(loginData, 'login');
+      await login(loginData);
     } catch (err) {
       console.error(err);
       setError("Invalid login credentials. Please try again.");
-    } finally {
-      setIsLoading(false);
     }
   };
 
@@ -78,6 +76,7 @@ const Login = () => {
         </div>
 
         {error && <div className="text-red-500 text-sm mt-2">{error}</div>}
+        {erro && <div className="text-red-500 text-sm mt-2">{erro}</div>}
 
         <button
           type="submit"
@@ -87,6 +86,7 @@ const Login = () => {
           {isLoading ? "Logging in..." : "Login"}
         </button>
       </form>
+      {showsuccess && <Success message={"Sign In successful!"} />}
     </div>
   );
 };

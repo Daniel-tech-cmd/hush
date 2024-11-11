@@ -2,13 +2,18 @@
 import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { useAuthContext } from "../hooks/useAuthContext";
 
 const Navbar = () => {
   const router = useRouter();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { user } = useAuthContext();
 
   return (
-    <nav className="fixed top-0 left-0 w-full bg-white shadow-md font-sans z-50">
+    <nav
+      className="fixed top-0 left-0 w-full bg-white shadow-md font-sans z-50"
+      style={{ zIndex: 9999 }}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex-shrink-0">
@@ -52,6 +57,20 @@ const Navbar = () => {
             >
               Our Services
             </Link>
+            {user?.role === "admin" && (
+              <>
+                <Link
+                  href="/admin/send-gift"
+                  className={`px-3 py-2 text-sm font-medium ${
+                    router.pathname === "/services"
+                      ? "text-green-600"
+                      : "text-gray-700"
+                  } hover:text-green-600`}
+                >
+                  Send Package
+                </Link>
+              </>
+            )}
           </div>
 
           {/* Right-Aligned Links */}
@@ -154,6 +173,30 @@ const Navbar = () => {
             >
               Contact Us
             </Link>
+            {user?.role === "admin" && (
+              <>
+                <Link
+                  href="/admin/send-gift"
+                  className={`block px-3 py-2 rounded-md text-base font-medium ${
+                    router.pathname === "/services"
+                      ? "text-green-600"
+                      : "text-gray-700"
+                  } hover:text-green-600`}
+                >
+                  Send Package
+                </Link>
+                <Link
+                  href="/admin/"
+                  className={`block px-3 py-2 rounded-md text-base font-medium ${
+                    router.pathname === "/services"
+                      ? "text-green-600"
+                      : "text-gray-700"
+                  } hover:text-green-600`}
+                >
+                  All Packages
+                </Link>
+              </>
+            )}
           </div>
         </div>
       )}

@@ -65,9 +65,9 @@ const Sendgift = () => {
         role: user?.role,
         status,
       };
-
+      const body = { data };
       try {
-        await submit(data, "gift");
+        await submit(body, "gift");
       } catch (erro) {
         console.log(erro);
       }
