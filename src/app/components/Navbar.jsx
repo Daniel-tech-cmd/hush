@@ -3,6 +3,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useAuthContext } from "../hooks/useAuthContext";
+import Logo from "./Logo";
 
 const Navbar = () => {
   const router = useRouter();
@@ -18,12 +19,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16">
           <div className="flex-shrink-0">
             <Link href="/">
-              <span
-                className="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-black"
-                style={{ fontWeight: "800" }}
-              >
-                Jetspeedcargo
-              </span>
+              <Logo />
             </Link>
           </div>
 
