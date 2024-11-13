@@ -6,14 +6,14 @@ const Logo = () => {
       {/* Text with gradient */}
       <span
         className="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-black font-extrabold"
-        style={{ fontWeight: "800", fontSize: "1.5rem" }}
+        style={{ fontWeight: "800", fontSize: "1.2rem" }}
       >
         Jetspeedcargo
       </span>
 
       {/* SVG Curved Path */}
       <svg
-        width="120"
+        width="90"
         height="20"
         viewBox="0 0 120 20"
         className="absolute"
@@ -41,14 +41,15 @@ const Logo = () => {
       <span
         className="absolute text-blue-500"
         style={{
-          top: "0.01rem", // Position below the line
-          left: "9rem",
+          top: "-0.3rem",
+          // Position below the line
+          left: "7rem",
           display: "inline-flex",
           alignItems: "center",
           transform: "rotate(30deg)", // Adjusted angle to follow curve direction
         }}
       >
-        <FaPlane size={16} />
+        <FaPlane size={15} />
       </span>
     </div>
   );
