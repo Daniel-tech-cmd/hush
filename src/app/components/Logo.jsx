@@ -7,6 +7,7 @@ const Logo = () => {
       <span
         className="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-black font-extrabold"
         style={{ fontWeight: "800", fontSize: "1.2rem" }}
+        translate="no"
       >
         Jetspeedcargo
       </span>

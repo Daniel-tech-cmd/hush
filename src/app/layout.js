@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar";
 import { AuthContextProvider } from "./contexts/AuthContext";
 import { notFound } from "next/navigation";
 import ChatButton from "./components/Whatsappicon";
+import Google from "./components/Google";
 
 const rubik = Rubik({ subsets: ["latin"], weight: ["400", "500", "700"] });
 
@@ -78,6 +79,7 @@ export default async function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${rubik.className} antialiased`}
       >
+        <Google />
         <AuthContextProvider>
           <Navbar />
           <ChatButton number={dat[0].whatsappNumber} />

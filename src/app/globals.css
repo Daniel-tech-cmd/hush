@@ -16,6 +16,30 @@
 input {
   color: #0a0a0a;
 }
+.skiptranslate {
+  /* display: none !important; */
+  color: transparent;
+}
+.skiptranslate span {
+  display: none;
+}
+.VIpgJd-ZVi9od-ORHb-OEVmcd {
+  left: 0;
+  top: 0;
+  height: 39px;
+  width: 100%;
+  z-index: 10000001;
+  position: fixed;
+  border: none;
+  border-bottom: 1px solid #6b90da;
+  margin: 0;
+  box-shadow: 0 0 8px 1px #999;
+  display: none;
+}
+.goog-te-gadget .goog-te-combo {
+  margin: 4px 0;
+  padding: 10px 20px;
+}
 body {
   color: var(--foreground);
   background: var(--background);
