@@ -51,7 +51,7 @@ async function getdatabyId() {
     cache: "no-store",
   });
   if (!res.ok) {
-    return notFound();
+    return;
   }
 
   const data = await res.json();

@@ -178,23 +178,50 @@ const Address = ({ data }) => {
         {/* Receipt Modal */}
         {showReceipt && (
           <div className="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-80">
-            <div className="bg-gray-900 p-8 rounded-lg shadow-lg max-w-md w-full text-white">
-              <h2 className="text-xl font-semibold mb-4 text-gray-200">
-                Delivery Info
-              </h2>
-              <div className="space-y-2">
-                <p>
-                  <strong className="text-gray-400">Recipient Name:</strong>{" "}
-                  {data?.recieverName}
-                </p>
-                <p>
-                  <strong className="text-gray-400">Address:</strong>{" "}
-                  {data?.recieveraddress}
-                </p>
-                <h2 className="text-lg font-semibold mt-4 text-gray-200">
-                  Amount Due: $234
-                </h2>
+            <div className="bg-gray-900 p-8 rounded-lg shadow-lg max-w-md w-full text-black">
+              <div
+              // style={{
+              //   position: "fixed",
+              //   top: "100px",
+              //   textAlign: "center",
+              //   display: "flex",
+              //   justifyContent: "center",
+              //   width: "100%",
+              //   // background: "#e5e5e5",
+              //   left: "0",
+              //   alignItems: "center",
+              //   flexDirection: "column",
+              // }}
+              >
+                {/* <Image src={"/sd.png"} width={400} height={500} alt="img" /> */}
+                <h1 style={{ fontWeight: "500" }}>Delivery Info</h1>
+                <div style={{ background: "#fff", padding: "20px" }}>
+                  <h2 style={{ margin: "10px 0" }}>DLIVERY ADDRESS</h2>
+                  <p>
+                    <b>Reciepient Name:</b> {data?.recieverName}
+                  </p>
+                  <p>
+                    <b>Address:</b> {data?.recieveraddress}
+                  </p>
+                  <h2 style={{ margin: "10px 0" }}>ORDER DETAILS</h2>
+                  <p>
+                    <b>Sender's name: </b>
+                    {data?.senderName}
+                  </p>
+                  <p>
+                    <b>Order #:</b> Y118802004
+                  </p>
+                  <p>
+                    <b>Shipping Date:</b>
+                    {data?.shipmentDate}
+                  </p>
+                  <p>
+                    <b>Delivery Date:</b>
+                    {data?.deliverydate}
+                  </p>
+                </div>
               </div>
+
               <button
                 className="mt-6 w-full py-2 bg-gray-700 text-white rounded-lg hover:bg-gray-600 transition-all"
                 onClick={() => setShowReceipt(false)}
