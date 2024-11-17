@@ -47,7 +47,15 @@ const Address = ({ data }) => {
             <div className="loader animate-spin border-t-4 border-blue-500 rounded-full w-8 h-8"></div>
           </div>
         )}
-
+        <div className="flex items-center bg-white rounded-lg shadow p-4 border-b border-dotted border-gray-300">
+          <FaMapMarkerAlt className="text-gray-700 mr-3" size={24} />
+          <div>
+            <span className="block font-medium text-gray-700">
+              Current Location
+            </span>
+            <span className="text-gray-900">{data?.currentLocation}</span>
+          </div>
+        </div>
         {/* Shipment Details */}
         <ul className="space-y-4">
           <li className="flex items-center bg-white rounded-lg shadow p-4 border-b border-dotted border-gray-300">
@@ -142,7 +150,9 @@ const Address = ({ data }) => {
           <li className="flex items-center bg-white rounded-lg shadow p-4 border-b border-dotted border-gray-300">
             <FaMapMarkerAlt className="text-gray-700 mr-3" size={24} />
             <div>
-              <span className="block font-medium text-gray-700">Location</span>
+              <span className="block font-medium text-gray-700">
+                Shipmnt Location
+              </span>
               <span className="text-gray-900">{data?.location}</span>
             </div>
           </li>
