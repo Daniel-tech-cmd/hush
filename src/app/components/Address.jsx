@@ -167,6 +167,18 @@ const Address = ({ data }) => {
             </div>
           </li>
         </ul>
+        <div
+          className="flex items-center bg-white rounded-lg shadow p-4 border-b border-dotted border-gray-300"
+          style={{ marginTop: "10px" }}
+        >
+          <FaMapMarkerAlt className="text-gray-700 mr-3" size={24} />
+          <div>
+            <span className="block font-medium text-gray-700">
+              Current Location
+            </span>
+            <span className="text-gray-900">{data?.currentLocation}</span>
+          </div>
+        </div>
 
         {/* Button */}
         <button
