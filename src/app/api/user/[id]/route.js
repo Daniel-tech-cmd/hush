@@ -1,6 +1,6 @@
 import User from "../../../models/user";
 import { connectToDB } from "../../../utils/database";
-export const dynamic = "force-dynamic";
+// export const dynamic = "force-dynamic";
 
 export const GET = async (req, { params }) => {
   await connectToDB();
@@ -8,23 +8,22 @@ export const GET = async (req, { params }) => {
   // Extract tracking ID from query parameters
 
   const { id } = params;
+  console.log(id);
 
   if (!id) {
     return new Response(
-      JSON.stringify({ success: false, error: "Tracking ID is required" }),
+      JSON.stringify({ success: false, error: "User ID is required" }),
       { status: 400 }
     );
   }
 
   try {
     // Find the package by tracking ID (case-insensitive)
-    const gift = await User.findOne({
-      trackingId: new RegExp(`^${id}$`, "i"),
-    });
+    const gift = await User.findById(id);
 
     if (!gift) {
       return new Response(
-        JSON.stringify({ success: false, error: "Package not found" }),
+        JSON.stringify({ success: false, error: "User not found" }),
         { status: 404 }
       );
     }
@@ -41,44 +40,49 @@ export const GET = async (req, { params }) => {
 };
 
 export const PATCH = async (req, { params }) => {
-  await connectToDB();
-
-  // Extract tracking ID from params
-  const { id } = params;
-
-  if (!id) {
-    return new Response(
-      JSON.stringify({ success: false, error: "Package ID is required" }),
-      { status: 400 }
-    );
-  }
-
   try {
-    // Parse the JSON data from the request body
+    await connectToDB();
+
+    const { id } = params;
+
+    if (!id) {
+      return new Response(
+        JSON.stringify({ success: false, error: "User ID is required" }),
+        { status: 400 }
+      );
+    }
+
+    // Parse the request body
     const { data } = await req.json();
+    const { role } = data;
 
-    // Log data to confirm what is being updated
+    // Validate the role field
+    if (!role) {
+      return new Response(
+        JSON.stringify({ success: false, error: "Role is required" }),
+        { status: 400 }
+      );
+    }
 
-    // Find the package by ID and update it
-    const updatedPackage = await Gift.findByIdAndUpdate(
+    // Update the user's role
+    const updatedUser = await User.findByIdAndUpdate(
       id,
-      { ...data },
-      { new: true, runValidators: true } // Ensures validators are applied to updated data
+      { role },
+      { new: true, runValidators: true } // Return the updated document and enforce schema validators
     );
 
-    // Check if the package was found and updated
-    if (!updatedPackage) {
+    if (!updatedUser) {
       return new Response(
-        JSON.stringify({ success: false, error: "Package not found" }),
+        JSON.stringify({ success: false, error: "User not found" }),
         { status: 404 }
       );
     }
 
-    return new Response(JSON.stringify(updatedPackage), {
+    return new Response(JSON.stringify({ success: true, data: updatedUser }), {
       status: 200,
     });
   } catch (error) {
-    console.error("Error updating package:", error.message);
+    console.error("Error updating user role:", error);
     return new Response(
       JSON.stringify({ success: false, error: error.message }),
       { status: 500 }

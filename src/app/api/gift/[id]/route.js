@@ -56,7 +56,6 @@ export const PATCH = async (req, { params }) => {
   try {
     // Parse the JSON data from the request body
     const { data } = await req.json();
-
     // Log data to confirm what is being updated
 
     // Find the package by ID and update it

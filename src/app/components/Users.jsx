@@ -64,7 +64,7 @@ const AdminComp = ({ data }) => {
           {data.map((dat) => (
             <Link
               key={dat._id}
-              href={`/admin/edit?query=${dat.trackingId}`}
+              href={`/admin/user/edit?query=${dat._id}`}
               style={{
                 backgroundColor: "#374151",
                 padding: "20px",

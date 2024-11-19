@@ -7,7 +7,7 @@ const userSchema = new Schema(
     username: {
       type: String,
       required: true,
-      unique: [true, "username already exists"],
+      unique: true,
     },
     email: {
       type: String,
@@ -21,7 +21,7 @@ const userSchema = new Schema(
     role: {
       type: String,
       default: "user",
-      enum: ["user", "admin"],
+      // enum: ["user", "admin"],
     },
   },
   { timestamps: true }

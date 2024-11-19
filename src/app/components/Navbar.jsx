@@ -3,11 +3,13 @@ import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useAuthContext } from "../hooks/useAuthContext";
+import useSignup from "../hooks/useSignup";
 import Logo from "./Logo";
 
 const Navbar = () => {
   const router = useRouter();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { logout } = useSignup();
   const { user } = useAuthContext();
 
   return (
@@ -53,26 +55,31 @@ const Navbar = () => {
             >
               Our Services
             </Link>
-            <Link
-              href="/admin/user/signup"
-              className={`px-3 py-2 text-sm font-medium ${
-                router.pathname === "/services"
-                  ? "text-green-600"
-                  : "text-gray-700"
-              } hover:text-green-600`}
-            >
-              Sign Up
-            </Link>{" "}
-            <Link
-              href="/admin/user/signin"
-              className={`px-3 py-2 text-sm font-medium ${
-                router.pathname === "/admin/user/signin"
-                  ? "text-green-600"
-                  : "text-gray-700"
-              } hover:text-green-600`}
-            >
-              Log in
-            </Link>
+            {!user && (
+              <>
+                <Link
+                  href="/admin/user/signup"
+                  className={`px-3 py-2 text-sm font-medium ${
+                    router.pathname === "/services"
+                      ? "text-green-600"
+                      : "text-gray-700"
+                  } hover:text-green-600`}
+                >
+                  Sign Up
+                </Link>{" "}
+                <Link
+                  href="/admin/user/signin"
+                  className={`px-3 py-2 text-sm font-medium ${
+                    router.pathname === "/admin/user/signin"
+                      ? "text-green-600"
+                      : "text-gray-700"
+                  } hover:text-green-600`}
+                >
+                  Log in
+                </Link>
+              </>
+            )}
+
             {user?.role === "admin" && (
               <>
                 <Link
@@ -88,7 +95,7 @@ const Navbar = () => {
                 <Link
                   href="/admin/add-number"
                   className={`px-3 py-2 text-sm font-medium ${
-                    router.pathname === "/services"
+                    router.pathname === "/admin/add-number"
                       ? "text-green-600"
                       : "text-gray-700"
                   } hover:text-green-600`}
@@ -98,13 +105,23 @@ const Navbar = () => {
                 <Link
                   href="/admin/"
                   className={`px-3 py-2 text-sm font-medium${
-                    router.pathname === "/services"
+                    router.pathname === "/admin/"
                       ? "text-green-600"
                       : "text-gray-700"
                   } hover:text-green-600`}
                 >
                   All Packages
                 </Link>
+                {/* <Link
+                  href="/admin/user"
+                  className={`px-3 py-2 text-sm font-medium${
+                    router.pathname === "/admin/user"
+                      ? "text-green-600"
+                      : "text-gray-700"
+                  } hover:text-green-600`}
+                >
+                  All Users
+                </Link> */}
               </>
             )}
           </div>
@@ -121,6 +138,14 @@ const Navbar = () => {
             >
               Contact Us
             </Link>
+            {user && (
+              <button
+                className="px-4 py-2 bg-blue-600 text-white font-semibold rounded hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 transition"
+                onClick={logout} // Replace with your logout function
+              >
+                Logout
+              </button>
+            )}
           </div>
 
           {/* Mobile Menu Button */}
@@ -261,6 +286,14 @@ const Navbar = () => {
                   Add Number
                 </Link>
               </>
+            )}
+            {user && (
+              <button
+                className="px-4 py-2 bg-blue-600 text-white font-semibold rounded hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 transition"
+                onClick={logout} // Replace with your logout function
+              >
+                Logout
+              </button>
             )}
           </div>
         </div>
