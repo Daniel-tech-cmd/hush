@@ -244,7 +244,7 @@ const Navbar = () => {
               Sign Up
             </Link>{" "}
             <Link
-              href="/services"
+              href="/admin/user/signin"
               className={`block px-3 py-2 rounded-md text-base font-medium ${
                 router.pathname === "/admin/user/signin"
                   ? "text-green-600"
@@ -278,7 +278,7 @@ const Navbar = () => {
                 <Link
                   href="/admin/add-number"
                   className={`block px-3 py-2 rounded-md text-base font-medium ${
-                    router.pathname === "/services"
+                    router.pathname === "/add-number"
                       ? "text-green-600"
                       : "text-gray-700"
                   } hover:text-green-600`}
