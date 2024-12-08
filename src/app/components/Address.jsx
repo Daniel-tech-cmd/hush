@@ -210,7 +210,7 @@ const Address = ({ data }) => {
                 {/* <Image src={"/sd.png"} width={400} height={500} alt="img" /> */}
                 <h1 style={{ fontWeight: "500" }}>Delivery Info</h1>
                 <div style={{ background: "#fff", padding: "20px" }}>
-                  <h2 style={{ margin: "10px 0" }}>DLIVERY ADDRESS</h2>
+                  <h2 style={{ margin: "10px 0" }}>DELIVERY ADDRESS</h2>
                   <p>
                     <b>Reciepient Name:</b> {data?.recieverName}
                   </p>
