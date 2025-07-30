@@ -85,7 +85,7 @@ export default async function RootLayout({ children }) {
         <Google />
         <AuthContextProvider>
           <Navbar />
-          <ChatButton number={dat[0].whatsappNumber} />
+          <ChatButton number={dat[0]?.whatsappNumber} />
           {children}
         </AuthContextProvider>
       </body>
