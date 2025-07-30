@@ -48,7 +48,7 @@ const ContactUs = () => {
           <div className="text-gray-900 space-y-4">
             <div className="flex items-center mb-4">
               <FiMail className="text-blue-600 text-2xl" />
-              <p className="ml-3">sales@Jetspeedcargo.in</p>
+              <p className="ml-3">Omahaairflighteasecargo@gmail.com</p>
             </div>
             <div className="flex items-center mb-4">
               <FiPhone className="text-blue-600 text-2xl" />
@@ -183,7 +183,7 @@ const ContactUs = () => {
           allowFullScreen=""
           loading="lazy"
           className="border-0 w-full rounded-lg shadow-lg"
-          title="Jetspeedcargo Location"
+          title="Oma-airflight Location"
         ></iframe>
       </div>
     </section>

@@ -20,13 +20,13 @@ const AboutUs = () => {
           {/* Left Text Content */}
           <div>
             <p className="text-gray-800 text-lg leading-relaxed">
-              At Jetspeedcargo, we are committed to making global shipping
+              At Oma-airflight, we are committed to making global shipping
               simple, efficient, and accessible. Our mission is to bridge
               distances and connect businesses with their customers worldwide by
               offering a seamless, reliable cargo and waybill solution.
             </p>
             <p className="mt-4 text-gray-800 text-lg leading-relaxed">
-              With a focus on transparency, speed, and innovation, Jetspeedcargo
+              With a focus on transparency, speed, and innovation, Oma-airflight
               provides end-to-end logistics services tailored to meet the needs
               of both small businesses and large enterprises. Our platform
               offers real-time tracking, competitive rates, and multiple carrier
@@ -36,7 +36,7 @@ const AboutUs = () => {
             <p className="mt-4 text-gray-800 text-lg leading-relaxed">
               We envision a world where businesses can expand beyond borders
               without the complexities of international logistics. By combining
-              technology and personalized customer support, Jetspeedcargo is
+              technology and personalized customer support, Oma-airflight is
               here to simplify the shipping experience and help businesses grow
               globally.
             </p>
@@ -46,7 +46,7 @@ const AboutUs = () => {
           <div className="relative">
             <img
               src="/about-img.jpg"
-              alt="Jetspeedcargo Logistics"
+              alt="Oma-airflight Logistics"
               className="rounded-lg shadow-lg w-full h-auto"
             />
           </div>
