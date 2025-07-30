@@ -9,7 +9,7 @@ const Logo = () => {
         style={{ fontWeight: "800", fontSize: "1.2rem" }}
         translate="no"
       >
-        Jetspeedcargo
+        Oma-airflight
       </span>
 
       {/* SVG Curved Path */}

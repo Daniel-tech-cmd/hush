@@ -21,13 +21,13 @@ const geistMono = localFont({
 });
 
 export const metadata = {
-  title: "Jetspeed Cargo – Efficient Global Shipping Solutions",
+  title: "Oma-airflight – Efficient Global Shipping Solutions",
   description:
-    "Jetspeed Cargo offers fast, reliable cargo and logistics services, connecting businesses globally with secure and timely shipping solutions. Discover seamless delivery with our industry expertise.",
+    "Oma-airflight offers fast, reliable cargo and logistics services, connecting businesses globally with secure and timely shipping solutions. Discover seamless delivery with our industry expertise.",
   openGraph: {
-    title: "Jetspeed Cargo – Efficient Global Shipping Solutions",
+    title: "Oma-airflight – Efficient Global Shipping Solutions",
     description:
-      "Jetspeed Cargo offers fast, reliable cargo and logistics services, connecting businesses globally with secure and timely shipping solutions. Discover seamless delivery with our industry expertise.",
+      "Oma-airflight offers fast, reliable cargo and logistics services, connecting businesses globally with secure and timely shipping solutions. Discover seamless delivery with our industry expertise.",
 
     images: [
       {
