@@ -51,7 +51,10 @@ async function getdatabyId() {
     cache: "no-store",
   });
   if (!res.ok) {
-    return;
+    let data = {
+      number : 1235
+    }
+    return data;
   }
 
   const data = await res.json();
