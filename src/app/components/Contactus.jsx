@@ -52,7 +52,7 @@ const ContactUs = () => {
             </div>
             <div className="flex items-center mb-4">
               <FiPhone className="text-blue-600 text-2xl" />
-              <p className="ml-3">+91 93992 62217</p>
+              <p className="ml-3">+1 (402) 318-3533 </p>
             </div>
             <div className="flex items-center mb-4">
               <FiMapPin className="text-blue-600 text-2xl" />
