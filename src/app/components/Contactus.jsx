@@ -57,15 +57,10 @@ const ContactUs = () => {
             <div className="flex items-center mb-4">
               <FiMapPin className="text-blue-600 text-2xl" />
               <p className="ml-3">
-                Regd. Add: 476B 2nd & 3rd Floor, Sector 30 Block C, Gurugram,
-                Haryana, 122001.
+                Airport Rd, Scottsbluff NE 69361, United States
               </p>
             </div>
-            <p>
-              Gurgaon Office: Unit 321, Tower B1, M3M Cosmopolitan, Sector-66,
-              Gurugram, Haryana, Pin-122001.
-            </p>
-            <p>Surat Office: Unit 129, Althan, Surat, Gujrat, Pin - 395017.</p>
+            
           </div>
 
           {/* Contact Form */}
